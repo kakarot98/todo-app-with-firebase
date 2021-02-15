@@ -27,15 +27,15 @@ const List = () => {
 
   return (
     <div>
-      <CompletedList todoList={todoList}/>
       <InCompletedList todoList={todoList}/>
-      
-      
+      <CompletedList todoList={todoList}/> 
+
       {/*todoList ? (
         todoList.map((todo, index) => <Task todo={todo} key={index}/>)
       ) : (
         <h1>Loading...</h1>
       )*/}
+      
     </div>
   );
 };
