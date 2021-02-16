@@ -8,21 +8,27 @@ const Form = () => {
     const todoRef = firebase.database().ref("ToDo");
     const todo = {
       text,
-      complete: false
+      complete: false,
     };
 
     todoRef.push(todo);
-    setText('')
+    setText("");
   };
 
   return (
     <div>
-      <input
-        type="text"
-        onChange={(e) => setText(e.target.value)}
-        value={text}
-      />
-      <button onClick={createTodo}>Add</button>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+        }}
+      >
+        <input
+          type="text"
+          onChange={(e) => setText(e.target.value)}
+          value={text}
+        />
+        <button onClick={createTodo}>Add</button>
+      </form>
     </div>
   );
 };

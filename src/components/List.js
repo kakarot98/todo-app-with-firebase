@@ -1,40 +1,34 @@
 import React, { useEffect, useState } from "react";
 import firebase from "./firebase";
-import Task from './Task'
-import CompletedList from './CompletedList'
-import InCompletedList from './InCompleteList'
-
+// import Task from "./Task";
+import CompletedList from "./CompletedList";
+import InCompletedList from "./InCompleteList";
 
 const List = () => {
   const [todoList, setTodoList] = useState();
 
   useEffect(() => {
+    const db = firebase.database()
     const todoRef = firebase.database().ref("ToDo");
 
     todoRef.on("value", (snapshot) => {
       const todos = snapshot.val();
-      console.log(todos)
+      // console.log(todos)
       const list = [];
       for (let id in todos) {
-        list.push({id, ...todos[id]});
+        list.push({ id, ...todos[id] });
       }
-      /*console.log(snapshot.val())*/
+      // console.log(snapshot.val())
       setTodoList(list);
-      console.log(list);
+      // console.log(list);
     });
-    /*retriveList()*/
+    // retriveList()
   }, []);
 
   return (
     <div>
-      <InCompletedList todoList={todoList}/>
-      <CompletedList todoList={todoList}/> 
-
-      {/*todoList ? (
-        todoList.map((todo, index) => <Task todo={todo} key={index}/>)
-      ) : (
-        <h1>Loading...</h1>
-      )*/}
+      <InCompletedList todoList={todoList} />
+      <CompletedList todoList={todoList} />
       
     </div>
   );
