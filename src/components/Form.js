@@ -1,17 +1,17 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import firebase from "./firebase";
 import { Container, TextField, Button } from "@material-ui/core";
 import { AddCircleOutlineRounded } from "@material-ui/icons";
 
-const Form = ({projectName}) => {  
+const Form = ({ projectName }) => {
   const [text, setText] = useState("");
-  const [name, setName] = useState("")
-  
-  useEffect(()=>{
-    setName(projectName)
-  })
+  const [name, setName] = useState("");
 
-  const createTodo = () => {  
+  useEffect(() => {
+    setName(projectName);
+  });
+
+  const createTodo = () => {
     const todoRef = firebase.database().ref("ToDoList").child(name);
     const todo = {
       text,

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import Task from "./Task";
 import { List, Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -11,25 +11,23 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const InCompleteList = ({ todoList,project }) => {
-  const [projName, setProjName] = useState("")
+const InCompleteList = ({ todoList, project }) => {
+  const [projName, setProjName] = useState("");
   useEffect(() => {
-    setProjName(project)
+    setProjName(project);
     //console.log(project)
-    return () => {
-      
-    }
-  }, [])
+    return () => {};
+  }, []);
   const listStyle = useStyles();
   return (
     <div>
       <h3>Pending</h3>
-      <Paper style={{maxHeight: 200, overflow: 'auto'}}>
+      <Paper style={{ maxHeight: 200, overflow: "auto" }}>
         <List className={listStyle.root}>
           {todoList ? (
             todoList.map((todo, index) => {
-              if(todo.skip){
-                return
+              if (todo.skip) {
+                return;
               }
               if (!todo.complete) {
                 return <Task todo={todo} project={projName} key={index} />;

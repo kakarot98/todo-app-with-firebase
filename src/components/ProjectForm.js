@@ -1,6 +1,6 @@
-import React, { useState,useEffect } from "react";
-import firebase from "./firebase"
-import ProjectList from './ProjectList'
+import React, { useState, useEffect } from "react";
+import firebase from "./firebase";
+import ProjectList from "./ProjectList";
 
 const ProjectForm = () => {
   const [projectName, setProjectName] = useState("");
@@ -8,17 +8,10 @@ const ProjectForm = () => {
   const createProject = () => {
     const projRef = firebase.database().ref("ToDoList");
     projRef.child(projectName).set({
-      skip:true,
-      // date: 
-    })
-    // const proj = {projectName: {
-                  
-    //   skip: true
-    // }}
+      skip: true,
+    });
 
-    // projRef.push(proj);
-
-    setProjectName("")
+    setProjectName("");
   };
 
   return (
@@ -29,8 +22,6 @@ const ProjectForm = () => {
         onChange={(e) => setProjectName(e.target.value)}
       />
       <button onClick={createProject}>Add Project</button>
-      
-      
     </div>
   );
 };
