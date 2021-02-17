@@ -5,3 +5,6 @@ Following are the libraries that I have used:
 
 run the command << npm install --save react-firebaseui @material-ui/core @material-ui/icons >> 
 
+Here is a gif:
+
+![](https://github.com/kakarot98/messaging-app/blob/master/ScreenRecording1.gif)
