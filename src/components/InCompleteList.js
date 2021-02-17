@@ -26,11 +26,11 @@ const InCompleteList = ({ todoList, project }) => {
         <List className={listStyle.root}>
           {todoList ? (
             todoList.map((todo, index) => {
-              if (todo.skip) {
+              if (!todo.text) {
                 return;
               }
               if (!todo.complete) {
-                return <Task todo={todo} project={projName} key={index} />;
+                return <Task todo={todo} project={project} key={index} />;
               }
             })
           ) : (

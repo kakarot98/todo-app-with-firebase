@@ -40,7 +40,7 @@ const Task = ({ todo, project }) => {
     const todoRef = firebase
       .database()
       .ref("ToDoList")
-      .child(parentName)
+      .child(project)
       .child(todo.id);
     todoRef.remove();
   };
@@ -49,7 +49,7 @@ const Task = ({ todo, project }) => {
     const todoRef = firebase
       .database()
       .ref("ToDoList")
-      .child(parentName)
+      .child(project)
       .child(todo.id);
     todoRef.update({
       text: update,
@@ -61,7 +61,7 @@ const Task = ({ todo, project }) => {
     const todoRef = firebase
       .database()
       .ref("ToDoList")
-      .child(parentName)
+      .child(project)
       .child(todo.id);
     todoRef.update({
       complete: !todo.complete,

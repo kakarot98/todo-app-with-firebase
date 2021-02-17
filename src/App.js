@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import HomePage from "./components/HomePage";
 import firebase from "./components/firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+import {Button} from '@material-ui/core'
 
 function App() {
   const [isSignedIn, setIsSignedIn] = useState(false);
