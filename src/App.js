@@ -1,9 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+// import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import HomePage from "./components/HomePage";
-import MterialUi from "./components/MaterialUi";
-import LoginPage from "./components/LoginPage";
 import firebase from "./components/firebase";
 import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 
