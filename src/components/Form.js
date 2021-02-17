@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import firebase from "./firebase";
 import { Container, TextField, Button } from "@material-ui/core";
-import {AddCircleOutlineRounded} from "@material-ui/icons"
+import { AddCircleOutlineRounded } from "@material-ui/icons";
 
-const Form = () => {
+const Form = ({projectName}) => {  
   const [text, setText] = useState("");
+  const [name, setName] = useState("")
+  
+  useEffect(()=>{
+    setName(projectName)
+  })
 
-  const createTodo = () => {
-    const db = firebase.database().ref()
-    console.log(db)
-    const todoRef = firebase.database().ref("ToDo");
+  const createTodo = () => {  
+    const todoRef = firebase.database().ref("ToDoList").child(name);
     const todo = {
       text,
       complete: false,
@@ -40,19 +43,16 @@ const Form = () => {
             onChange={(e) => setText(e.target.value)}
           />
           <Button
-          type="submit"
-          variant="contained"
-          color="primary"
-          fullWidth
-          onClick={createTodo}
-          disabled={!text}
-          startIcon={<AddCircleOutlineRounded />}
-        >
-          Add Todo
-      </Button>
-
-          
-          
+            type="submit"
+            variant="contained"
+            color="primary"
+            fullWidth
+            onClick={createTodo}
+            disabled={!text}
+            startIcon={<AddCircleOutlineRounded />}
+          >
+            Add Todo
+          </Button>
         </form>
       </Container>
     </div>
